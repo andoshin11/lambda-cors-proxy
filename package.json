@@ -12,6 +12,6 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "node-fetch": "^3.3.0"
+    "node-fetch-commonjs": "^3.2.4"
   }
 }

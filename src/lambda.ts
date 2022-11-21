@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch-commonjs'
 
 export const handler = async (event: any) => {
   return new Promise(async (resolve, reject) => {
@@ -40,7 +40,9 @@ export const handler = async (event: any) => {
       let proxyResponse = {
         statusCode: res.status,
         headers: {
-          'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, authorization, allow-origin',
+          'Access-Control-Allow-Origin': origin || Origin, // Required for CORS support to work
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
           'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
           'content-type': res.headers.get('content-type'),
         },
