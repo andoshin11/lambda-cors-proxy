@@ -1,0 +1,17 @@
+{
+  "name": "cors-proxy",
+  "version": "1.0.0",
+  "main": "lib/lambda.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "zip": "zip -q tmp/cors-proxy.zip package.json yarn.lock -r node_modules -r lib"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  }
+}
