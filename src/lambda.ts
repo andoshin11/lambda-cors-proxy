@@ -8,6 +8,19 @@ export const handler = async (event: any) => {
     console.log(event);
     console.log(`Got request with params:`, params);
 
+    if (['options', 'OPTIONS'].includes(event.httpMethod)) {
+      resolve({
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, authorization, allow-origin',
+          'Access-Control-Allow-Origin': origin || Origin, // Required for CORS support to work
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
+        },
+      })
+      return
+    }
+
     if (!params.url) {
       const errorResponse = {
         statusCode: 400,
